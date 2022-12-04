@@ -6,7 +6,6 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
 criterion = torch.nn.CrossEntropyLoss()
-#criterion = torch.nn.BCELoss()
 #optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay = 0.01)
 optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate, momentum = 0.9)
 train_losses = []
