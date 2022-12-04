@@ -41,3 +41,17 @@ with torch.no_grad():
         acc = 100.0 * float(correct_count)/n_class_total_pred[classname]
         print(f'Accuracy of {classname:s}: {acc:.3f} %')
 print(n_class_correct_pred)
+
+
+
+
+for i in range(len(truelabels)):
+    sheet.cell(2+i, 7).value = i+1
+    sheet.cell(2+i, 8).value = int(truelabels[i])
+    sheet.cell(2+i, 9).value = int(predictions[i])
+
+for i in range(len(folders)):
+    sheet.cell(2+i, 10).value = folders[i]
+    sheet.cell(2+i, 11).value = i
+
+book.save(os.path.join(os.getcwd(), fname))
